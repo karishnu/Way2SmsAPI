@@ -11,7 +11,7 @@
 * password
 
 ## Send SMS
-**URI** - [http://site21.way2sms.com/smstoss.action](http://site21.way2sms.com/smstoss.action)
+**URI** - [site21.way2sms.com/smstoss.action](site21.way2sms.com/smstoss.action)
 
 **Type** - Post
 
