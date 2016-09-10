@@ -21,6 +21,8 @@
 * **Token**
 
 
-Request JSON
+#Request JSON
+
+https://way2smsapi.herokuapp.com/send
 
     {"username":"9867555569","password":"passsssss","mobile":["9943430733","8952692224"],"message":"Hello Hello Hello"}
