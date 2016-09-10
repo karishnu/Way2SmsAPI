@@ -19,3 +19,8 @@
 * mobile
 * message
 * **Token**
+
+
+Request JSON
+
+    {"username":"9867555569","password":"passsssss","mobile":["9943430733","8952692224"],"message":"Hello Hello Hello"}
