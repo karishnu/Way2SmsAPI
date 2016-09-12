@@ -9,9 +9,9 @@ router.post('/', function (req, res, next) {
     if (req.body.username == null || req.body.password == null || req.body.mobile == null || req.body.message == null) {
         res.send(JSON.stringify({code: '200', message: 'Bad Request'}));
     }
-    else if(req.body.mobile.size > 25){
+/*    else if(req.body.mobile.size > 25){
         res.send(JSON.stringify({code: '300', message: 'Mobile numbers greater than 25'}));
-    }
+    }*/
     else {
         var cJar = unirest.jar();
 
