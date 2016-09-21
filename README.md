@@ -27,7 +27,7 @@ https://way2smsapi.herokuapp.com/send
 
     {"username":"9867555569","password":"passsssss","mobile":["9943430733","8952692224"],"message":"Hello Hello Hello"}
     
-# Login Test
+# Login Test and Sent Number
 
 https://way2smsapi.herokuapp.com/login
 
@@ -35,4 +35,4 @@ https://way2smsapi.herokuapp.com/login
     
     Successful Response
     
-    {"code":"0","message":"Logged In Successfully"}
+    {"code":"0","sent":"1","message":"Logged In Successfully"}

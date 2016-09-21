@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var unirest = require('unirest');
 var sessionID;
+var cheerio = require('cheerio');
 
 /* GET users listing. */
 router.post('/', function (req, res, next) {
@@ -26,8 +27,17 @@ router.post('/', function (req, res, next) {
                 res.send(JSON.stringify({code: '100', message: 'Invalid Login'}));
             }
             else if(response.request.headers.cookie){
-                res.send(JSON.stringify({code: '0', message: 'Logged In Successfully'}));
+                unirest.post("http://site21.way2sms.com/sentSMS?Token=" + response.request.headers.cookie.split('~')[1])
+                    .jar(cJar)
+                    .end(onSubmitLeft);
             }
+        }
+
+        function onSubmitLeft(response) {
+
+            var $ = cheerio.load(response.body);
+
+            res.send(JSON.stringify({code: '0', sent: $($('.hed')).text().trim().split('(')[1].split(')')[0], message: 'Logged In Successfully'}));
         }
 
         unirest.post('http://site21.way2sms.com/content/Login1.action')
