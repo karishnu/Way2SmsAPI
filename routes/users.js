@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var unirest = require('unirest');
+var cheerio = require('cheerio');
 var sessionID;
 
 /* GET users listing. */
@@ -21,9 +22,11 @@ router.post('/', function (req, res, next) {
         function onSubmitMessage(response) {
             sentCount++;
 
-            //console.log(response);
-
-            if (sentCount >= mobileCount) {
+            var $ = cheerio.load(response.body);
+            if($('.mess').text()=='xRejected : Can\'t submit your message, finished your day quota.'){
+                res.send(JSON.stringify({code: '500', message: 'Day quota finished!'}));
+            }
+            else if (sentCount >= mobileCount) {
                 res.send(JSON.stringify({code: '0', message: 'message(s) successfully sent'}));
             }
         }
