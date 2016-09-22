@@ -36,3 +36,10 @@ https://way2smsapi.herokuapp.com/login
     Successful Response
     
     {"code":"0","sent":"1","message":"Logged In Successfully"}
+
+# Error Responses
+
+    {code: '500', message: 'Day quota finished!'}
+    {code: '200', message: 'Bad Request'}
+    {code: '400', message: 'Unknown Error'}
+    {code: '100', message: 'Invalid Login'}

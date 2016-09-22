@@ -23,7 +23,7 @@ router.post('/', function (req, res, next) {
             sentCount++;
 
             var $ = cheerio.load(response.body);
-            if($('.mess').text()=='xRejected : Can\'t submit your message, finished your day quota.'){
+            if($('.mess')['0'].children[1].children[0].data=='Rejected : Can\'t submit your message, finished your day quota.'){
                 res.send(JSON.stringify({code: '500', message: 'Day quota finished!'}));
             }
             else if (sentCount >= mobileCount) {
